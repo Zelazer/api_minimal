@@ -66,6 +66,6 @@ def actualizar_equipo(equipo_id: int, equipo_actualizado: EquipoCreate) -> dict:
 def eliminar_equipo(equipo_id: int) -> dict:
     equipo = obtener_equipo(equipo_id)
 
-    _equipos.remove(equipo_id)
+    _equipos.remove(equipo)
 
     return equipo
