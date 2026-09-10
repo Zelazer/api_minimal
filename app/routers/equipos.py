@@ -5,6 +5,8 @@ from app.services.equipo_service import (
     crear_equipo,
     listar_equipos,
     obtener_equipo,
+    actualizar_equipo,
+    eliminar_equipo
 )
 
 router = APIRouter(prefix="/equipos", tags=["Equipos"])
@@ -25,3 +27,11 @@ def post_equipo(equipo: EquipoCreate):
     return crear_equipo(equipo)
 
 
+@router.put("/{equipo_id}", response_model=EquipoResponse)
+def put_equipo(equipo_id: int, equipo_actualizado: EquipoCreate):
+    return actualizar_equipo(equipo_id, equipo_actualizado)
+
+
+@router.delete("/{equipo_id}", response_model=EquipoResponse)
+def delete_equipo(equipo_id: int):
+    return eliminar_equipo(equipo_id)
